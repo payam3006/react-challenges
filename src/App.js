@@ -39,9 +39,9 @@ function App() {
 
             {/* <Nav /> */}
             <Routes>
-              <Route path="/game1" element={<Game1 />} />
+              <Route path="/react-challenges/game1" element={<Game1 />} />
 
-              <Route path="/" element={<Home />} />
+              <Route path="/react-challenges" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/profile/:name/:id?" element={<Profile />} />
