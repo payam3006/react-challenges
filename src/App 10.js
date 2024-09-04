@@ -2,7 +2,6 @@ import "./App.css";
 // npm install react-router-dom
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { Game1 } from "./pages/game1";
 import { Contact } from "./pages/Contact";
 import { About } from "./pages/About";
 import { Nav } from "./pages/Nav";
@@ -37,17 +36,15 @@ function App() {
           <Router>
             <div>Payam Website!</div>
 
-            {/* <Nav /> */}
+            <Nav />
             <Routes>
-              <Route path="/game1" element={<Game1 />} />
-
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/profile/:name/:id?" element={<Profile />} />
               <Route path="*" element={<div>Not Found!</div>} />
             </Routes>
-            {/* <Footer /> */}
+            <Footer />
           </Router>
         </ProfileContex.Provider>
       </QueryClientProvider>
