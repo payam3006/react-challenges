@@ -53,27 +53,52 @@ a {
   background-color: yellow;
 }
 
-/* for games */
-body {
+/* for game1 */
+body,
+#root,
+.App {
   overflow: hidden;
+  height: 100dvh;
 }
-.box-container {
-  position: absolute;
-  bottom: 0;
+.container {
+  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.score-board {
+  font-size: 2rem;
+  font-weight: 600;
+  color: gray;
+}
+.box-container {
+  /* position: absolute;
+  bottom: 0; */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
   width: 100%;
+
   .box {
-    width: 50px;
-    height: 100px;
-    transform: translateY(100px);
-    background-color: red;
-    margin: 0 10px;
+    display: inline-block;
+    width: 18vmax;
+    height: 18vmax;
+    border-radius: 50%;
+    /* scale: 0; */
+    /* transform: translateY(100px); */
+    background-color: rgb(173, 216, 230, 0.5);
+    color: black;
+    /* height: 18vmax; */
+    line-height: 18vmax;
+    margin: 2vmax;
     cursor: pointer;
     transition: 0.5s;
     &.active {
-      transform: translateY(0px);
+      background-color: blueviolet;
+
+      scale: 1;
+      /* transform: translateY(0px); */
     }
   }
 }

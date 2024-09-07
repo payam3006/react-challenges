@@ -4,71 +4,61 @@
 
 import { useContext, useEffect, useState } from "react";
 import { ProfileContex } from "../App";
-import { useQuery } from "react-query";
+import { setLogger, useQuery } from "react-query";
 import Axios from "axios";
+import { Game1Box } from "../components/game1-box";
 
 // export default Home;
 
 export const Game1 = () => {
-  const [active, setActive] = useState(1);
   const [score, setScore] = useState(0);
+
+  const [active, setActive] = useState(1);
+
+  const sumScore = (boxScore, negetiveScore, clickRight) => {
+    clickRight ? setScore(score + boxScore) : setScore(score + negetiveScore);
+    console.log(boxScore, negetiveScore);
+  };
+
+  // console.log("document mounted", new Date().getSeconds());
+
   useEffect(() => {
+    console.log("document mounted", new Date().getSeconds());
     setInterval(() => {
-      // console.log(Math.ceil(Math.random() * 6));
-      setActive(Math.ceil(Math.random() * 6));
+      setActive(Math.ceil(Math.random() * 8));
+      // console.log(Math.ceil(Math.random() * 8));
     }, 1000);
   }, []);
+
   return (
     <>
-      <div className="score-board">{score}</div>
-      <div className="box-container">
-        <div
-          className={`box ${active === 1 && "active"}`}
-          onClick={() => {
-            setScore(score + 1);
-          }}
-        >
-          box1
-        </div>
-        <div
-          className={`box ${active === 2 && "active"}`}
-          onClick={() => {
-            setScore(score + 1);
-          }}
-        >
-          box2
-        </div>
-        <div
-          className={`box ${active === 3 && "active"}`}
-          onClick={() => {
-            setScore(score + 1);
-          }}
-        >
-          box3
-        </div>
-        <div
-          className={`box ${active === 4 && "active"}`}
-          onClick={() => {
-            setScore(score + 1);
-          }}
-        >
-          box4
-        </div>
-        <div
-          className={`box ${active === 5 && "active"}`}
-          onClick={() => {
-            setScore(score + 1);
-          }}
-        >
-          box5
-        </div>
-        <div
-          className={`box ${active === 6 && "active"}`}
-          onClick={() => {
-            setScore(score + 1);
-          }}
-        >
-          box6
+      <div className="container">
+        <div className="score-board">score: {score}</div>
+        <div className="box-container">
+          <Game1Box
+            name="box1"
+            callBackFunction={sumScore}
+            boxScore={3}
+            activate={false}
+            timeOut={0}
+            timeIn={0}
+          />
+          <Game1Box
+            name="box2"
+            callBackFunction={sumScore}
+            boxScore={3}
+            activate={active === 2}
+            timeOut={0}
+            timeIn={0}
+          />
+          <Game1Box
+            name="box3"
+            callBackFunction={sumScore}
+            boxScore={3}
+            activate={true}
+            timeOut={0}
+            timeIn={0}
+          />
         </div>
       </div>
     </>
