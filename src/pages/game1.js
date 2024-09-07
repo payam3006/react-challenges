@@ -31,7 +31,7 @@ export const Game1 = () => {
   };
 
   const [score, setScore] = useState(0);
-  const [boxesArray, setBoxesArray] = useState(Array(5).fill(0));
+  const [boxesArray, setBoxesArray] = useState(setActiveBoxes(5, 2));
 
   const sumScore = (boxScore, negetiveScore, clickRight) => {
     clickRight ? setScore(score + boxScore) : setScore(score + negetiveScore);
@@ -41,15 +41,15 @@ export const Game1 = () => {
   console.log("document mounted", new Date().getSeconds());
 
   // useEffect(() => {
-  //   console.log("document mounted", new Date().getSeconds());
-  //   setInterval(() => {
-  //     setBoxesArray(() => {
-  //       const newArray = setActiveBoxes(5, 2);
-  //       return newArray;
-  //     });
-  //     console.log(boxesArray);
-  //   }, 2000);
-  // }, []);
+  //   //   console.log("document mounted", new Date().getSeconds());
+  //   //   setInterval(() => {
+  //   setBoxesArray(() => {
+  //     const newArray = setActiveBoxes(5, 2);
+  //     return newArray;
+  //   });
+  //   console.log(boxesArray);
+  //   //   }, 2000);
+  // }, [score]);
 
   return (
     <>
